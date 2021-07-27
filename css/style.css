@@ -1,0 +1,128 @@
+:root {
+    --border: 2px solid blue;
+    --mainColor-F: #fff;
+    --mainColor-E: #eee;
+    --mainColor-D: #eee;
+}
+
+* {
+    margin: 0;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: 'segoe ui light';
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.btn-control {
+    width: 100%;
+    height: 100%;
+    background-color: #00b8ffe0;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    border: var(--border);
+}
+
+.btn-control p {
+    text-align: center;
+    background-color: #035779e0;
+    padding: 10px;
+    color: var(--mainColor-D);
+}
+
+.btn-control p span {
+    color: var(--mainColor-F);
+}
+
+.btn-control .startGame {
+    padding: 15px 20px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #c7453c;
+    color: var(--mainColor-F);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.header {
+    background-color: var(--mainColor-E);
+    width: 80%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border: var(--border);
+}
+
+.header span,
+p span {
+    color: #009688;
+    font-size: 1.5rem;
+}
+
+.memoryGame {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: var(--mainColor-D);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border: var(--border);
+}
+
+.memoryGame .game-block {
+    width: calc(88%/6);
+    height: 200px;
+    margin: 1%;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform .4s;
+    position: relative;
+}
+
+.memoryGame .game-block .front {
+    background-color: #333333;
+    color: var(--mainColor-F);
+    font-size: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid rgb(135, 187, 14);
+}
+
+.memoryGame .game-block .back {
+    background-color: var(--mainColor-E);
+    transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid rgb(173, 197, 117);
+}
+
+.memoryGame .game-block .back img {
+    width: 160px;
+    height: 160px;
+}
+
+.memoryGame .game-block .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.memoryGame .game-block.flip,
+.memoryGame .game-block.Match {
+    transform: rotateY(180deg);
+    pointer-events: none;
+}
+
+.memoryGame.no-clicking {
+    pointer-events: none;
+}
